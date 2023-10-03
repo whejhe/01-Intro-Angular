@@ -1,0 +1,47 @@
+Generar modulo:
+ng g module appRouting --flat
+
+
+en app-routing.modules.ts:
+
+aqui los imports...
+
+const rutas:Routes = [
+    {
+        path:'inicio',
+        component: InicioComponent
+    },
+    {
+        path:'info',
+        component:InfoComponent
+    },
+    {
+        path:'buscar',
+        component:BuscarComponent
+    },
+    {
+        path:'**',
+        redirectTo:'inicio'
+    }
+]
+
+@NgModule({
+        declarations: [],
+        imports: [
+            RouterModule.forRoot(rutas)
+        ],
+        exports:[
+            RouterModule
+        ]
+    })
+
+export class AppRoutingModule { }
+
+
+en app.module.ts:
+imports:[
+    AppRoutingModule
+]
+
+en app.component.html
+<router-outler></router-outler> 

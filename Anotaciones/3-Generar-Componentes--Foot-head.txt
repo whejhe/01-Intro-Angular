@@ -1,0 +1,30 @@
+ng g module components
+
+ng g c componentes/cabecera
+
+ng g c componentes/footer
+---------------------------------------------------------
+en componentes.module.ts:
+
+@NgModule({
+  declarations: [
+    CabeceraComponent,
+    FooterComponent
+  ],
+  imports: [
+    CommonModule
+  ],
+  exports: [
+    CabeceraComponent,
+    FooterComponent
+  ]
+})
+export class ComponentesModule { }
+----------------------------------------------------------------
+En las paginas:
+
+<app-cabecera></app-cabecera>
+<p>componente buscar</p>
+<app-footer></app-footer>
+
+--------------------------------------------------------------
