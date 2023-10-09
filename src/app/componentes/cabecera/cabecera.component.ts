@@ -9,15 +9,15 @@ export class CabeceraComponent implements OnInit {
 
   public elementosMenu:any[]=[
     {
-      ruta:'Inicio',
+      ruta:'inicio',
       nombre:'Inicio'
     },
     {
-      ruta:'Info',
+      ruta:'info',
       nombre:'Info'
     },
     {
-      ruta:'Buscar',
+      ruta:'buscar',
       nombre:'Buscar'
     }
   ];
