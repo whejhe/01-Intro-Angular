@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { InicioComponent } from './paginas/inicio/inicio.component';
 import { BuscarComponent } from './paginas/buscar/buscar.component';
 import { InfoComponent } from './paginas/info/info.component';
+import { GaleriaComponent } from './paginas/galeria/galeria.component';
 
 const rutas:Routes = [
   {
@@ -16,6 +17,10 @@ const rutas:Routes = [
   {
     path:'info',
     component:InfoComponent
+  },
+  {
+    path:'galeria',
+    component:GaleriaComponent
   },
   {
     path:'**',

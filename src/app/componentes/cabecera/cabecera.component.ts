@@ -12,20 +12,28 @@ export class CabeceraComponent implements OnInit {
   public elementosMenu:any[]=[
     {
       ruta:'/inicio',
-      nombre:'Inicio'
+      nombre:'Inicio',
+      activo:false
     },
     {
       ruta:'/info',
-      nombre:'Info'
+      nombre:'Info',
+      activo:false
     },
     {
       ruta:'/buscar',
-      nombre:'Buscar'
+      nombre:'Buscar',
+      activo:false
+    },
+    {
+      ruta:'/galeria',
+      nombre:'Galeria',
+      activo:false
     }
   ];
   constructor() { }
 
   ngOnInit(): void {
-    console.log('entra en cabecera');
+      this.elementosMenu.forEach(element=>element.activo=element.nombre==this.titulo);
   }
 }

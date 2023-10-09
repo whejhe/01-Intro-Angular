@@ -4,6 +4,7 @@ import { BuscarComponent } from './buscar/buscar.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { InfoComponent } from './info/info.component';
 import { ComponentesModule } from '../componentes/componentes.module';
+import { GaleriaComponent } from './galeria/galeria.component';
 
 
 
@@ -11,7 +12,8 @@ import { ComponentesModule } from '../componentes/componentes.module';
   declarations: [
     BuscarComponent,
     InicioComponent,
-    InfoComponent
+    InfoComponent,
+    GaleriaComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { ComponentesModule } from '../componentes/componentes.module';
   exports: [
     BuscarComponent,
     InicioComponent,
-    InfoComponent
+    InfoComponent,
+    GaleriaComponent
   ]
 })
 export class PaginasModule { }

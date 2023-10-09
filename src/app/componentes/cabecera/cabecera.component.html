@@ -6,8 +6,7 @@
     <ul class="nav nav-pills">
         <li class="nav-item" *ngFor="let element of elementosMenu">
             <a 
-            class="nav-link" 
-            aria-current="page"
+            [ngClass]="element.activo ? 'nav-link active' : 'nav-link'"
             [routerLink]="element.ruta"
             >
             {{element.nombre}}
