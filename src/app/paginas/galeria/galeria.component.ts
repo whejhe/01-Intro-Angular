@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { JuegosService } from 'src/app/servicios/juegos.service';
+import { Juego } from '../../interfaces/juego';
 
 @Component({
   selector: 'app-galeria',
@@ -6,12 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./galeria.component.css']
 })
 export class GaleriaComponent implements OnInit {
-  constructor() { }
+  constructor(private _juegosService: JuegosService) { }
 
   async ngOnInit() {
     try{
-      let juegosObtenidos = await this.getJuegos();
-      console.log('juegosObtenidos',juegosObtenidos);
+      let juegosObtenidos:Juego[] = await this._juegosService.getJuegos();
+      //console.log('juegosObtenidos',juegosObtenidos);
+      let juegosDisparos = juegosObtenidos.forEach(elemento=>{
+        return elemento.genre == 'Shooter';
+      })
+      console.log('juegosDisparos',juegosDisparos);
     }catch(err){
       console.log('Error: ',err);
     }
@@ -33,7 +39,7 @@ export class GaleriaComponent implements OnInit {
     },
   ];
 
-  getJuegos(){
+  getJuegosFalse(){
     return new Promise((resolve, reject)=>{
       setTimeout(() => {
         let hayError = false;
