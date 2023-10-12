@@ -7,7 +7,7 @@
                 <h3 class="card-title">{{ juego.title }}</h3>
                 <p>{{ juego.genre }}</p>
                 <p>{{ juego.platform }}</p>
-                <button class="btn btn-link">{{ juego.freetogame_profile_url }}</button>
+                <button class="btn btn-link" type="button"><a href="{{ juego.freetogame_profile_url }}">Play Now</a></button>
                 <p class="card-text">{{ juego.short_description }}</p>
                 <p>{{ juego.release_date }}</p>
             </div>
