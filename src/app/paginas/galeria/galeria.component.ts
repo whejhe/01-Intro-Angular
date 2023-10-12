@@ -8,49 +8,16 @@ import { Juego } from '../../interfaces/juego';
   styleUrls: ['./galeria.component.css']
 })
 export class GaleriaComponent implements OnInit {
+  juegos: Juego[] = [];
+
   constructor(private _juegosService: JuegosService) { }
 
   async ngOnInit() {
-    try{
-      let juegosObtenidos:Juego[] = await this._juegosService.getJuegos();
-      //console.log('juegosObtenidos',juegosObtenidos);
-      let juegosDisparos = juegosObtenidos.forEach(elemento=>{
-        return elemento.genre == 'Shooter';
-      })
-      console.log('juegosDisparos',juegosDisparos);
-    }catch(err){
-      console.log('Error: ',err);
+    try {
+      this.juegos = await this._juegosService.getJuegos();
+      console.log('juegosObtenidos', this.juegos);
+    } catch (err) {
+      console.log('Error: ', err);
     }
   }
-
-
-  public juegos = [
-    {
-      nombre: 'Juego 1',
-      imagen: 'fifa.png'
-    },
-    {
-      nombre: 'Juego 2',
-      imagen: 'fifa.png'
-    },
-    {
-      nombre: 'Juego 3',
-      imagen: 'fifa.png'
-    },
-  ];
-
-  getJuegosFalse(){
-    return new Promise((resolve, reject)=>{
-      setTimeout(() => {
-        let hayError = false;
-        if(hayError){
-          reject('Error en la peticion');
-        }else{
-          resolve(this.juegos);
-        }
-      }, 2000);      
-    })
-
-  }
-
 }

@@ -1,3 +1,15 @@
 <app-cabecera [titulo]="'Galeria'"></app-cabecera>
-<p>Este es el componente galeria</p>
+<div *ngFor="let juego of juegos" class="container">
+    <div class="tarjeta">
+        <img [src]="juego.thumbnail" alt="{{ juego.title }}">
+        <h3>{{ juego.title }}</h3>
+        <p>{{ juego.genre }}</p>
+        <p>{{ juego.platform }}</p>
+        <p>{{ juego.publisher }}</p>
+        <p>{{ juego.developer }}</p>
+        <p>{{ juego.release_date }}</p>
+        <p>{{ juego.freetogame_profile_url }}</p>
+        <p>{{ juego.short_description }}</p>
+    </div>
+</div>
 <app-footer></app-footer>
