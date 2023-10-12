@@ -1,15 +1,20 @@
 <app-cabecera [titulo]="'Galeria'"></app-cabecera>
-<div *ngFor="let juego of juegos" class="container">
-    <div class="tarjeta">
-        <img [src]="juego.thumbnail" alt="{{ juego.title }}">
-        <h3>{{ juego.title }}</h3>
-        <p>{{ juego.genre }}</p>
-        <p>{{ juego.platform }}</p>
-        <p>{{ juego.publisher }}</p>
-        <p>{{ juego.developer }}</p>
-        <p>{{ juego.release_date }}</p>
-        <p>{{ juego.freetogame_profile_url }}</p>
-        <p>{{ juego.short_description }}</p>
+<div class="row">
+    <div class="col-4 mb-4" *ngFor="let juego of juegos">
+        <div class="tarjeta">
+            <img [src]="juego.thumbnail" alt="{{ juego.title }}">
+            <div class="card-body">
+                <h3 class="card-title">{{ juego.title }}</h3>
+                <p>{{ juego.genre }}</p>
+                <p>{{ juego.platform }}</p>
+                <p>{{ juego.publisher }}</p>
+                <p>{{ juego.developer }}</p>
+                <p>{{ juego.release_date }}</p>
+                <p>{{ juego.freetogame_profile_url }}</p>
+                <p class="card-text">{{ juego.short_description }}</p>
+            </div>
+        </div>
     </div>
+
 </div>
 <app-footer></app-footer>

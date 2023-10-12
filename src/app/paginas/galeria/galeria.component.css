@@ -1,24 +1,26 @@
 /* Contenedor principal de las tarjetas */
-.container {
-    display: flex;
-    flex-wrap: wrap;
+/*.container {
     justify-content: space-between;
     align-items: flex-start;
-
     width: 23em;
     margin: 0 auto;
-}
+    display: inline;
+    display: flex;
+}*/
 
 /* Tarjeta individual */
-.tarjeta {
+/*.tarjeta {
+    flex-direction: row;
+    align-items: center;
     margin: 10px;
     background-color: #f5f5f5;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    width: fit-content;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
+}*/
+/*
 .tarjeta h3 {
     font-size: 1.2em;
     margin: 0;
@@ -31,4 +33,4 @@
 
 .tarjeta p {
     margin: 10px 0;
-}
+}*/
