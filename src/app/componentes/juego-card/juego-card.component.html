@@ -6,6 +6,17 @@
         <p>{{ juego.platform }}</p>
         <a class="btn btn-primary" (click)="nuevaPagina(juego.freetogame_profile_url)">Play Now</a>
         <p class="card-text">{{ juego.short_description }}</p>
+
+        <div class="form-check form-switch mt-3">
+            <input 
+                type="checkbox" 
+                class="form-check-input" 
+                id="flexSwitchCheckDefault"
+                [(ngModel)]="favorito"
+                (change)="cambia($event)"
+            >
+            <label class="form-check-label" for="flexSwitchCheckDefault">Añadir a Favoritos</label>
+        </div>
         <div class="card-footer text-muted">
             <span class="lanzamiento">Fecha de Lanzamiento: {{ juego.release_date|miFecha:'long' }}</span>
         </div>

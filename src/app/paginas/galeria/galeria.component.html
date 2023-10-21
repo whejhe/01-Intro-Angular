@@ -1,26 +1,43 @@
 <app-cabecera [titulo]="'Galeria'"></app-cabecera>
-<div class="row">
-    <div class="col-4">
-        <div class="form-outline">
-            <input type="text" 
-            placeholder="Buscar por" 
-            class="form-control mb-4" 
-            [(ngModel)]="cadenaBusqueda" />
+<div class="d-flex">
+    <div class="row custom-min-width container">
+        <div class="col-4">
+            <div class="form-outline">
+                <input type="text" 
+                placeholder="Buscar por" 
+                class="form-control mb-4" 
+                [(ngModel)]="cadenaBusqueda" />
+            </div>
+        </div>
+    </div>
+    <div class="row custom-min-width container">
+        <div class="col-4">
+            <select class="form-select mb-4" [(ngModel)]="campo">
+                <option value="id">ID</option>
+                <option value="title">Título</option>
+                <option value="thumbnail">Imagen</option>
+                <option value="short_description">Descripción</option>
+                <option value="game_url">URL del Juego</option>
+                <option value="genre">Género</option>
+                <option value="platform">Plataforma</option>
+                <option value="publisher">Editorial</option>
+                <option value="developer">Desarrollador</option>
+                <option value="release_date">Fecha de Lanzamiento</option>
+            </select>
         </div>
     </div>
 </div>
 <div class="row">
-    <div class="col-4">
-        <select class="form-select mb-4" [(ngModel)]="campo">
-            <option value="title">Título</option>
-            <option value="genre">Género</option>
-            <option value="platform">Plataforma</option>
-        </select>
-    </div>
+    <div class="col">Añadir a Favoritos: </div>
+    <div class="col" *ngFor="let elemento of favoritos"></div>
 </div>
 <div class="row">
     <div class="col-4 mb-4" *ngFor="let juego of juegos|filtro:cadenaBusqueda:campo">
-        <app-juego-card [juego]="juego"></app-juego-card>
+        <app-juego-card 
+            [juego]="juego"
+            (notificaCambio)="meterEnFavoritos($event)"
+        >
+        </app-juego-card>
     </div>
 </div>
 <app-footer></app-footer>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Juego } from 'src/app/interfaces/juego';
 
 @Component({
@@ -10,12 +10,18 @@ export class JuegoCardComponent implements OnInit {
   
   constructor() { }
   @Input()juego!: Juego;
+  @Output() notificaCambio:EventEmitter<string> = new EventEmitter();
+  public favorito: boolean = false;
   ngOnInit(): void {
       
   }
 
   nuevaPagina(url:string){
     window.open(url, "_blank");
+  }
+  cambia(ev: any){
+    console.log('this.favorito', this.favorito);
+    this.notificaCambio.emit(this.juego.title);
   }
 
 }

@@ -14,8 +14,8 @@ export class GaleriaComponent implements OnInit {
   constructor(private _juegosService: JuegosService) { }
 
   public cadenaBusqueda: string = '';
-
-  juegos: Juego[] = [];
+  public juegos: Juego[] = [];
+  public favoritos: string[] = [];
 
   async ngOnInit() {
     try {
@@ -27,6 +27,17 @@ export class GaleriaComponent implements OnInit {
   }
   cambia(ev: any){
     console.log(this.cadenaBusqueda);
+  }
+
+  meterEnFavoritos(datos:string){
+    if(!this.favoritos.includes(datos)){
+      this.favoritos.push(datos);
+    }
+    else{
+      this.favoritos = this.favoritos.filter((elemento)=>{
+        return datos !=elemento;
+      })
+    }
   }
 
 }

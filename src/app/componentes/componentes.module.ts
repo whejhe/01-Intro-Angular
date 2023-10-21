@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { JuegoCardComponent } from './juego-card/juego-card.component';
 import { PipesModule } from '../pipes/pipes.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +18,8 @@ import { PipesModule } from '../pipes/pipes.module';
   imports: [
     CommonModule,
     RouterModule,
-    PipesModule
+    PipesModule,
+    FormsModule
   ],
   exports: [
     CabeceraComponent,
