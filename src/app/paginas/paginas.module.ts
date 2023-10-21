@@ -5,6 +5,8 @@ import { InicioComponent } from './inicio/inicio.component';
 import { InfoComponent } from './info/info.component';
 import { ComponentesModule } from '../componentes/componentes.module';
 import { GaleriaComponent } from './galeria/galeria.component';
+import { FormsModule } from '@angular/forms';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 
@@ -17,7 +19,9 @@ import { GaleriaComponent } from './galeria/galeria.component';
   ],
   imports: [
     CommonModule,
-    ComponentesModule
+    ComponentesModule,
+    FormsModule,
+    PipesModule
 
   ],
   exports: [

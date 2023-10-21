@@ -32,3 +32,8 @@ button{
 button:hover{
     background-color: rgb(236, 216, 175);
 }
+
+
+.lanzamiento{
+    color: wheat;
+}

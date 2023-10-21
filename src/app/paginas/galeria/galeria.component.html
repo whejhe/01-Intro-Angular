@@ -1,18 +1,24 @@
 <app-cabecera [titulo]="'Galeria'"></app-cabecera>
 <div class="row">
-    <div class="col-4 mb-4" *ngFor="let juego of juegos">
-        <div class="tarjeta">
-            <img [src]="juego.thumbnail" alt="{{ juego.title }}">
-            <div class="card-body">
-                <h3 class="card-title">{{ juego.title }}</h3>
-                <p>{{ juego.genre }}</p>
-                <p>{{ juego.platform }}</p>
-                <button class="btn btn-link" type="button"><a href="{{ juego.freetogame_profile_url }}">Play Now</a></button>
-                <p class="card-text">{{ juego.short_description }}</p>
-                <p>{{ juego.release_date }}</p>
-            </div>
+    <div class="col col-4">
+        <div class="form-outline">
+            <input type="text" placeholder="Buscar por" class="form-control mb-4" [(ngModel)]="cadenaBusqueda" />
         </div>
     </div>
+</div>
+<div class="row">
+    <div class="col col-4">
+        <select class="form-select mb-4" [(ngModel)]="campo">
+            <option value="title">Título</option>
+            <option value="genre">Género</option>
+            <option value="platform">Plataforma</option>
+        </select>
+    </div>
+</div>
 
+<div class="row">
+    <div class="col-4 mb-4" *ngFor="let juego of juegos|filtro:cadenaBusqueda:campo">
+        <app-juego-card [juego]="juego"></app-juego-card>
+    </div>
 </div>
 <app-footer></app-footer>

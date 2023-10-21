@@ -8,9 +8,14 @@ import { Juego } from '../../interfaces/juego';
   styleUrls: ['./galeria.component.css']
 })
 export class GaleriaComponent implements OnInit {
-  juegos: Juego[] = [];
+
+  campo: string = 'title';
 
   constructor(private _juegosService: JuegosService) { }
+
+  public cadenaBusqueda: string = '';
+
+  juegos: Juego[] = [];
 
   async ngOnInit() {
     try {
@@ -20,4 +25,8 @@ export class GaleriaComponent implements OnInit {
       console.log('Error: ', err);
     }
   }
+  cambia(ev: any){
+    console.log(this.cadenaBusqueda);
+  }
+
 }
