@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Juego } from '../interfaces/juego';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JuegosService {
+  public eventoFavoritos: EventEmitter<Juego> = new EventEmitter();
   constructor(private _http: HttpClient) { }
 
   getJuegos() {

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Juego } from 'src/app/interfaces/juego';
+import { JuegosService } from 'src/app/servicios/juegos.service';
 
 @Component({
   selector: 'app-juego-card',
@@ -8,7 +9,7 @@ import { Juego } from 'src/app/interfaces/juego';
 })
 export class JuegoCardComponent implements OnInit {
   
-  constructor() { }
+  constructor(private _juegoService: JuegosService) { }
   @Input()juego!: Juego;
   @Output() notificaCambio:EventEmitter<string> = new EventEmitter();
   public favorito: boolean = false;
@@ -22,6 +23,7 @@ export class JuegoCardComponent implements OnInit {
   cambia(ev: any){
     console.log('this.favorito', this.favorito);
     this.notificaCambio.emit(this.juego.title);
+    this._juegoService.eventoFavoritos.emit(this.juego);
   }
 
 }
